@@ -4,9 +4,10 @@ derived_columns:
   RECORD_SOURCE: "!SEEDS_DB"
   LOAD_DATETIME: "CURRENT_TIMESTAMP(4)"
   DATE_STOLEN: "TO_DATE(date_stolen, 'MM/DD/YY')"
+  CLEAN_MAKE_ID: "COALESCE(make_id, -1)"
 hashed_columns:
   HUB_VEHICLE_KEY: "vehicle_id"
-  HUB_MAKE_KEY: "make_id"
+  HUB_MAKE_KEY: "CLEAN_MAKE_ID"
   HUB_LOCATION_KEY: "location_id"
 
   LNK_STOLEN_VEHICLE_KEY:
